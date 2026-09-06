@@ -7,5 +7,23 @@ html {
 body {
   background: #ffffff;
   color: #1f2937;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+/* Section divider */
+.section-divider {
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(to right, #15803d, #22c55e);
+  border-radius: 9999px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Smooth card hover lift */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
