@@ -1,0 +1,120 @@
+import { siteConfig } from "@/data/config";
+
+const quickLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About Us", href: "#about" },
+  { label: "Mission", href: "#mission" },
+  { label: "Team", href: "#team" },
+  { label: "Projects", href: "#projects" },
+  { label: "Partners", href: "#partners" },
+  { label: "Stories", href: "#stories" },
+  { label: "Contact", href: "#contact" },
+];
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 py-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src="/images/ngo_logo.png"
+                alt="Logo"
+                className="w-12 h-12 rounded-full object-cover border-2 border-green-500"
+              />
+              <div>
+                <p className="font-bold text-white leading-tight">
+                  Omkar Health and Education
+                </p>
+                <p className="text-green-400 text-sm">Foundation</p>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-4">
+              {siteConfig.description}
+            </p>
+            <p className="text-gray-500 text-xs">
+              A Section 8 Non-Profit Company | Registered under the Companies
+              Act, 2013
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">
+              Quick Links
+            </h4>
+            <ul className="flex flex-col gap-2">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-gray-400 text-sm hover:text-green-400 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">
+              Contact
+            </h4>
+            <div className="flex flex-col gap-3 text-gray-400 text-sm">
+              <p className="flex items-start gap-2">
+                <span className="mt-0.5">📍</span>
+                <span>
+                  {siteConfig.address}, {siteConfig.city}, {siteConfig.state} -{" "}
+                  {siteConfig.pincode}
+                </span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span>📞</span>
+                <span>{siteConfig.phone}</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span>✉️</span>
+                <span>{siteConfig.email}</span>
+              </p>
+            </div>
+
+            {/* Social */}
+            <div className="flex gap-2 mt-6">
+              {[
+                { label: "FB", href: siteConfig.socialMedia.facebook },
+                { label: "IG", href: siteConfig.socialMedia.instagram },
+                { label: "TW", href: siteConfig.socialMedia.twitter },
+                { label: "YT", href: siteConfig.socialMedia.youtube },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs text-gray-300 hover:bg-green-600 hover:text-white transition-colors font-bold"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-gray-800 px-4 py-5">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+          <p>
+            &copy; {year} Omkar Health and Education Foundation. All rights
+            reserved.
+          </p>
+          <p>Non-Profit | No profits distributed to members</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
